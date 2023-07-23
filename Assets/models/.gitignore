@@ -1,0 +1,8 @@
+*
+!**/*.tscn
+!**/*.gltf
+!**/*.png
+!**/*.bin
+!**/*.txt
+!**/*.blend
+!.gitignore
