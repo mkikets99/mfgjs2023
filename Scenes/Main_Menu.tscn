@@ -1,0 +1,109 @@
+[gd_scene load_steps=15 format=3 uid="uid://7fbhrpwrv7gl"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu/Main_Menu_Global.cs" id="1_6samq"]
+[ext_resource type="FontFile" uid="uid://c0el8eeqmej03" path="res://Assets/fonts/PressStart2P-Regular.ttf" id="1_67vnu"]
+[ext_resource type="Script" path="res://Scripts/MainMenu/QuitButton.cs" id="3_fs8r2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ivtby"]
+font = ExtResource("1_67vnu")
+font_size = 50
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e5qx0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_043pd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xw0tn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dacvy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1nsd5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j7ui5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gts58"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_20jmo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dagwx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yu744"]
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6samq")
+
+[node name="TitleGroup" type="CanvasGroup" parent="."]
+
+[node name="Label" type="Label" parent="TitleGroup"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 550.0
+offset_bottom = 73.0
+text = "The Infinite Reset"
+label_settings = SubResource("LabelSettings_ivtby")
+
+[node name="MenuItems" type="CanvasGroup" parent="."]
+
+[node name="NewGameButton" type="Button" parent="MenuItems"]
+offset_left = 60.0
+offset_top = 300.0
+offset_right = 388.0
+offset_bottom = 348.0
+theme_override_fonts/font = ExtResource("1_67vnu")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e5qx0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_043pd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xw0tn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dacvy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1nsd5")
+text = "New Game"
+
+[node name="ContinueGameButton" type="Button" parent="MenuItems"]
+offset_left = 60.0
+offset_top = 370.0
+offset_right = 388.0
+offset_bottom = 418.0
+theme_override_fonts/font = ExtResource("1_67vnu")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j7ui5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gts58")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_20jmo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dagwx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yu744")
+text = "Continue Game"
+
+[node name="CreditButton" type="Button" parent="MenuItems"]
+offset_left = 60.0
+offset_top = 440.0
+offset_right = 580.0
+offset_bottom = 488.0
+theme_override_fonts/font = ExtResource("1_67vnu")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j7ui5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gts58")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_20jmo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dagwx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yu744")
+text = "Credits"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="MenuItems"]
+offset_left = 60.0
+offset_top = 510.0
+offset_right = 580.0
+offset_bottom = 558.0
+theme_override_fonts/font = ExtResource("1_67vnu")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j7ui5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gts58")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_20jmo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dagwx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yu744")
+text = "Quit"
+alignment = 0
+script = ExtResource("3_fs8r2")

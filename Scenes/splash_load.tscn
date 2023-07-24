@@ -6,6 +6,7 @@
 
 [node name="splash_load" type="Node2D"]
 script = ExtResource("1_gsvwm")
+pathToResorce = "res://Scenes/Main_Menu.tscn"
 
 [node name="WarningScreen" type="Sprite2D" parent="."]
 texture = ExtResource("1_kvlpb")
