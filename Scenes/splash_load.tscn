@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://co7ou1opj4ejr"]
+
+[ext_resource type="Script" path="res://Scripts/SplashScreen/splash_load.gd" id="1_gsvwm"]
+[ext_resource type="Texture2D" uid="uid://r4muywkh0foy" path="res://Assets/images/StartScreen.png" id="1_kvlpb"]
+[ext_resource type="Texture2D" uid="uid://dfqup8vvd61jd" path="res://Assets/images/StartScreen2.png" id="3_dlf16"]
+
+[node name="splash_load" type="Node2D"]
+script = ExtResource("1_gsvwm")
+
+[node name="WarningScreen" type="Sprite2D" parent="."]
+texture = ExtResource("1_kvlpb")
+centered = false
+
+[node name="SmallCreditScreen" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("3_dlf16")
+centered = false
