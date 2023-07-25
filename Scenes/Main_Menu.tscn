@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://7fbhrpwrv7gl"]
+[gd_scene load_steps=17 format=3 uid="uid://7fbhrpwrv7gl"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu/Main_Menu_Global.cs" id="1_6samq"]
 [ext_resource type="FontFile" uid="uid://c0el8eeqmej03" path="res://Assets/fonts/PressStart2P-Regular.ttf" id="1_67vnu"]
 [ext_resource type="Script" path="res://Scripts/MainMenu/QuitButton.cs" id="3_fs8r2"]
+[ext_resource type="Script" path="res://Scripts/MainMenu/NewGameButton.cs" id="3_ku3da"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ivtby"]
 font = ExtResource("1_67vnu")
@@ -27,6 +28,9 @@ font_size = 50
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dagwx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yu744"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hwdxe"]
+font = ExtResource("1_67vnu")
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -62,6 +66,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_xw0tn")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_dacvy")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1nsd5")
 text = "New Game"
+script = ExtResource("3_ku3da")
 
 [node name="ContinueGameButton" type="Button" parent="MenuItems"]
 offset_left = 60.0
@@ -75,6 +80,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_gts58")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_20jmo")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_dagwx")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yu744")
+disabled = true
 text = "Continue Game"
 
 [node name="CreditButton" type="Button" parent="MenuItems"]
@@ -92,7 +98,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_yu744")
 text = "Credits"
 alignment = 0
 
-[node name="QuitButton" type="Button" parent="MenuItems"]
+[node name="SettingsButton" type="Button" parent="MenuItems"]
 offset_left = 60.0
 offset_top = 510.0
 offset_right = 580.0
@@ -104,6 +110,81 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_gts58")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_20jmo")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_dagwx")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yu744")
+text = "Settings"
+alignment = 0
+script = ExtResource("3_fs8r2")
+
+[node name="QuitButton2" type="Button" parent="MenuItems"]
+offset_left = 60.0
+offset_top = 580.0
+offset_right = 580.0
+offset_bottom = 628.0
+theme_override_fonts/font = ExtResource("1_67vnu")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j7ui5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gts58")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_20jmo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dagwx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yu744")
 text = "Quit"
 alignment = 0
 script = ExtResource("3_fs8r2")
+
+[node name="QuitQuestion" type="CanvasGroup" parent="."]
+position = Vector2(960, 540)
+
+[node name="BackGround" type="ColorRect" parent="QuitQuestion"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.164706, 0.164706, 0.164706, 1)
+
+[node name="Question" type="Label" parent="QuitQuestion/BackGround"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 282.0
+offset_bottom = 33.0
+text = "You want to quit?"
+label_settings = SubResource("LabelSettings_hwdxe")
+
+[node name="QuitButton" type="Button" parent="QuitQuestion/BackGround"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 169.0
+offset_right = 98.0
+offset_bottom = 185.0
+theme_override_fonts/font = ExtResource("1_67vnu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j7ui5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gts58")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_20jmo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dagwx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yu744")
+text = "Yes
+"
+alignment = 0
+script = ExtResource("3_fs8r2")
+
+[node name="DialogClose" type="Button" parent="QuitQuestion/BackGround"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 169.0
+offset_right = 242.0
+offset_bottom = 185.0
+theme_override_fonts/font = ExtResource("1_67vnu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j7ui5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gts58")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_20jmo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dagwx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yu744")
+text = "No
+"
+alignment = 0

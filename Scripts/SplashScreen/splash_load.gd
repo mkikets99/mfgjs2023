@@ -37,8 +37,8 @@ func _process(delta):
       
   if (state == 1 and statetime > timer):
     var section:float = timer - (statetime/2)
-    var clPerc: float = (abs(section/(statetime/2)) if section < 0 else 0) 
-    var opPerc: float = (section/(statetime/2) if section > 0 else 0) 
+    var clPerc: float = (abs(section/(statetime/2)) if section < 0 else 0.0) 
+    var opPerc: float = (section/(statetime/2) if section > 0 else 0.0) 
     WarningScreen.modulate.a = clPerc
     CreditScreen.modulate.a = opPerc
       

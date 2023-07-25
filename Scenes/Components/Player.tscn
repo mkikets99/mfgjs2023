@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://2r377nxox2y5"]
+
+[ext_resource type="Shader" uid="uid://bqjwe0vygndmh" path="res://Scripts/shaders/PixelShader.tres" id="1_04a72"]
+[ext_resource type="Script" path="res://Scripts/Components/Player.gd" id="1_vlbmy"]
+[ext_resource type="Texture2D" uid="uid://dr6bdsrq81x64" path="res://Assets/images/icon.svg" id="2_sfksu"]
+
+[sub_resource type="Environment" id="Environment_pmfl1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g0l2j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qi4vq"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0v3mp"]
+material = SubResource("StandardMaterial3D_qi4vq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uark5"]
+shader = ExtResource("1_04a72")
+shader_parameter/FloatParameter = null
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_vlbmy")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 12, 15.5, 12)
+environment = SubResource("Environment_pmfl1")
+projection = 1
+size = 20.0
+near = 0.005
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
+
+[node name="BodyCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_g0l2j")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_0v3mp")
+
+[node name="ShaderPixelar" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_uark5")
+scale = Vector2(15, 8.43)
+texture = ExtResource("2_sfksu")
+centered = false
