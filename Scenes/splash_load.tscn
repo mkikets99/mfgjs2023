@@ -1,18 +1,102 @@
-[gd_scene load_steps=4 format=3 uid="uid://co7ou1opj4ejr"]
+[gd_scene load_steps=8 format=3 uid="uid://co7ou1opj4ejr"]
 
 [ext_resource type="Script" path="res://Scripts/SplashScreen/splash_load.gd" id="1_gsvwm"]
 [ext_resource type="Texture2D" uid="uid://r4muywkh0foy" path="res://Assets/images/StartScreen.png" id="1_kvlpb"]
 [ext_resource type="Texture2D" uid="uid://dfqup8vvd61jd" path="res://Assets/images/StartScreen2.png" id="3_dlf16"]
+[ext_resource type="FontFile" uid="uid://c0el8eeqmej03" path="res://Assets/fonts/PressStart2P-Regular.ttf" id="4_6y8bx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qff1k"]
+font = ExtResource("4_6y8bx")
+font_size = 65
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ypnmw"]
+line_spacing = 5.0
+font = ExtResource("4_6y8bx")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_xyfdw"]
+font = ExtResource("4_6y8bx")
+font_size = 25
 
 [node name="splash_load" type="Node2D"]
 script = ExtResource("1_gsvwm")
 pathToResorce = "res://Scenes/Main_Menu.tscn"
 
 [node name="WarningScreen" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_kvlpb")
 centered = false
 
 [node name="SmallCreditScreen" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
+visible = false
 texture = ExtResource("3_dlf16")
 centered = false
+
+[node name="WarningGroup" type="CanvasGroup" parent="."]
+
+[node name="Label" type="Label" parent="WarningGroup"]
+offset_left = 700.0
+offset_top = 250.0
+offset_right = 1220.0
+offset_bottom = 318.0
+text = "WARNING!"
+label_settings = SubResource("LabelSettings_qff1k")
+
+[node name="WarningText" type="Label" parent="WarningGroup"]
+offset_left = 126.0
+offset_top = 476.0
+offset_right = 1801.0
+offset_bottom = 532.0
+text = "This game contains intense violence and may include flashing lights.
+
+Player discretion is advised. Enjoy responsibly."
+label_settings = SubResource("LabelSettings_ypnmw")
+horizontal_alignment = 1
+
+[node name="SmallCreditGroup" type="CanvasGroup" parent="."]
+modulate = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="SmallCreditGroup"]
+offset_left = 603.0
+offset_top = 200.0
+offset_right = 1318.0
+offset_bottom = 268.0
+text = "DISCLAIMER!"
+label_settings = SubResource("LabelSettings_qff1k")
+
+[node name="WarningText" type="Label" parent="SmallCreditGroup"]
+offset_left = 110.0
+offset_top = 320.0
+offset_right = 1810.0
+offset_bottom = 920.0
+text = "Game created for \"My First Game Jam: Summer 2023\" event.
+This game is a work of enthusiastic people,
+who trying to create a game, based on a film.
+
+This game draws inspiration from a certain film, 
+and while we strive to create a unique and immersive experience, 
+there may be elements that bear resemblance to the said film. 
+However, it is essential to note that this game is an original work, 
+and any similarities are purely coincidental.
+
+We have crafted this gaming adventure with love and passion, 
+aiming to offer you a captivating and thrilling experience.
+Our team has put in tremendous effort to bring you
+something exceptional and distinctive.
+
+So, gear up and immerse yourself in this extraordinary world, 
+appreciating the game's originality 
+while acknowledging any chance resemblances to the film. 
+We hope you enjoy the journey ahead!
+Play on and have a fantastic time!"
+label_settings = SubResource("LabelSettings_ypnmw")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="SmallCreditGroup"]
+offset_left = 1300.0
+offset_top = 940.0
+offset_right = 1850.0
+offset_bottom = 968.0
+text = "-The Tech Dragons Team"
+label_settings = SubResource("LabelSettings_xyfdw")

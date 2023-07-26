@@ -1,10 +1,10 @@
 extends Node2D
 
-@onready var WarningScreen : Node2D = $WarningScreen
-@onready var CreditScreen : Node2D = $SmallCreditScreen
-@export var warningScreenTime :int = 5
-@export var creditScreenTime :int = 20
-@export var crossTime :int = 5
+@onready var WarningScreen : Node2D = $WarningGroup
+@onready var CreditScreen : Node2D = $SmallCreditGroup
+@export var warningScreenTime :float = 5.0
+@export var creditScreenTime :float = 20.0
+@export var crossTime :float = 5.0
 @export var pathToResorce :String = "res://Scenes/node_2d.tscn"
 
 var timer: float = 0
@@ -33,6 +33,8 @@ func _process(delta):
     2:
       statetime = creditScreenTime
     3:
+      statetime = crossTime/2
+    4:
       get_tree().change_scene_to_file(pathToResorce)
       
   if (state == 1 and statetime > timer):
@@ -41,13 +43,10 @@ func _process(delta):
     var opPerc: float = (section/(statetime/2) if section > 0 else 0.0) 
     WarningScreen.modulate.a = clPerc
     CreditScreen.modulate.a = opPerc
+  if (state == 3 and statetime > timer):
+    var clPerc: float = (statetime/2-timer)/(statetime/2)
+    CreditScreen.modulate.a = clPerc
       
   if (statetime<timer) :
       timer = 0
-      match state:
-        0:
-          state = 1
-        1:
-          state = 2
-        2:
-          state = 3
+      state += 1
